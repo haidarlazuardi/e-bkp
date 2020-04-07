@@ -9,7 +9,7 @@ class JurusanController extends Controller
     //
     public function index()
     {
-    	return view('admin/Punishment/index');
+    	return view('admin/Jurusan/index');
  
     }
 }
