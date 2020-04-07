@@ -94,12 +94,12 @@
                     <div class="collapse show" id="navbar-example">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="">
+                                <a class="nav-link" href="{{route('reward')}}">
                                     {{ __('INPUT REWARD') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">
+                                <a class="nav-link" href="{{route('punishment')}}">
                                     {{ __('INPUT PUNISHMENT') }}
                                 </a>
                             </li>
@@ -112,7 +112,27 @@
                     </a>
 
                     <div class="collapse show" id="navbar-examples">
-                        <ul class="nav nav-sm flex-column">
+                    <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('siswa') }}">
+                                    {{ __('INPUT SISWA') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('guru') }}">
+                                    {{ __('INPUT GURU') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('rombel') }}">
+                                    {{ __('INPUT ROMBEL') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('rayon') }}">
+                                    {{ __('INPUT RAYON') }}
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile.edit') }}">
                                     {{ __('User profile') }}
