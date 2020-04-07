@@ -43,5 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/rombel','RombelController@index')->name('rombel');
 
+	Route::get('/jurusan','JurusanController@index')->name('jurusan');
+
 });
 

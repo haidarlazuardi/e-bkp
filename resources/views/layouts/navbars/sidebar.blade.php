@@ -84,8 +84,7 @@
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
-                <li class="nav-item">
-                <li class="nav-item">
+                
                     <a class="nav-link active" href="#navbar-example" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('input punishment & reward') }}</span>
@@ -95,12 +94,12 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('reward')}}">
-                                    {{ __('INPUT REWARD') }}
+                                    {{ __('Input Reward') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('punishment')}}">
-                                    {{ __('INPUT PUNISHMENT') }}
+                                    {{ __('Input Punishment') }}
                                 </a>
                             </li>
                         </ul>
@@ -108,46 +107,48 @@
                 </li>
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Kelola siswa') }}</span>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Input Siswa & Guru') }}</span>
                     </a>
 
                     <div class="collapse show" id="navbar-examples">
-                    <ul class="nav nav-sm flex-column">
+                        <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('siswa') }}">
-                                    {{ __('INPUT SISWA') }}
+                                    {{ __('Input Siswa') }}
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                                </li>
+                                <li class="nav-item">
                                 <a class="nav-link" href="{{ route('guru') }}">
-                                    {{ __('INPUT GURU') }}
+                                    {{ __('Input Guru') }}
                                 </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('rombel') }}">
-                                    {{ __('INPUT ROMBEL') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('rayon') }}">
-                                    {{ __('INPUT RAYON') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('profile.edit') }}">
-                                    {{ __('User profile') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.index') }}">
-                                    {{ __('User Management') }}
-                                </a>
-                            </li>
-                        </ul>
+                        </li>
+                      </ul>
                     </div>
                 </li>
+                <a class="nav-link active" href="#navbar-exampless" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                <span class="nav-link-text" style="color: #f4645f;">{{ __('Input Rombel, Rayon & Jurusan') }}</span>
+                </a>
 
-
+                <div class="collapse show" id="navbar-exampless">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('rombel') }}">
+                                    {{ __('Input Rombel') }}
+                                </a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="{{ route('rayon') }}">
+                                    {{ __('Input Rayon') }}
+                                </a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('jurusan') }}">
+                                    {{ __('Input Jurusan') }}
+                                </a>
+                        </li>
+                      </ul>
+                    </div>
               
             </ul>
             <!-- Divider -->
