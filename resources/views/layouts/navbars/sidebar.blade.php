@@ -113,6 +113,7 @@
                     <div class="collapse show" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
+                           @if(auth()->user()->role == "admin")
                                 <a class="nav-link" href="{{ route('siswa') }}">
                                     {{ __('Input Siswa') }}
                                 </a>
@@ -140,6 +141,12 @@
                                 <li class="nav-item">
                                 <a class="nav-link" href="{{ route('rayon') }}">
                                     {{ __('Input Rayon') }}
+                                </a>
+                            </li>
+                             @endif                   
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('profile.edit') }}">
+                                    {{ __('User profile') }}
                                 </a>
                         </li>
                         <li class="nav-item">
