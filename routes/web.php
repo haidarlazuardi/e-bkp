@@ -29,5 +29,19 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+
+	Route::get('/reward','RewardController@index')->name('reward');
+	
+
+	Route::get('/punishment','PunishmentController@index')->name('punishment');
+
+	Route::get('/siswa','SiswaController@index')->name('siswa');
+
+	Route::get('/guru','GuruController@index')->name('guru');
+
+	Route::get('/rayon','RayonController@index')->name('rayon');
+
+	Route::get('/rombel','RombelController@index')->name('rombel');
+
 });
 
