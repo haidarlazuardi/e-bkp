@@ -26,17 +26,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($student as $data)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$data->user_id}}</td>
+                                            <td>{{$data->nis}}</td>
+                                            <td>{{$data->full_name}}</td>
+                                            <td>{{$data->gender}}</td>
+                                            <td>{{$data->major_id}}</td>
+                                            <td>{{$data->rombel_id}}</td>
+                                            <td>{{$data->rayon_id}}</td>
+                                            <td><button type="button" class="btn btn-warning btn-sm">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
                                         </tr>
+                                            @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -50,7 +52,8 @@
                 </div>
                 <div class="modal-body">
 
-                    <form method="POST" action="">
+                    <form method="post" action="{{ route('create') }}">
+                        
                         @csrf
 
                         <div class="form-group{{ $errors->has('nis') ? ' has-danger' : '' }}">
@@ -73,7 +76,7 @@
                                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                                 </div>
                                 <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Name') }}" type="text" name="name" value="{{ old('name') }}"
+                                    placeholder="{{ __('Name') }}" type="text" name="full_name" value="{{ old('name') }}"
                                     required autofocus>
                             </div>
                             @if ($errors->has('name'))
@@ -82,19 +85,17 @@
                             </span>
                             @endif
                         </div>
-                        <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="customRadioInline1" name="customRadioInline1"
-                                    class="custom-control-input">
-                                <label class="custom-control-label" for="customRadioInline1">Toggle this custom
-                                    radio</label>
-                            </div>
-
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="customRadioInline2" name="customRadioInline1"
-                                    class="custom-control-input">
-                                <label class="custom-control-label" for="customRadioInline2">Or toggle this other custom
-                                    radio</label>
+              
+                        <div class="form-group{{ $errors->has('gender') ? ' has-danger' : '' }}">
+                            <div class="input-group input-group-alternative mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-gender-83"></i></span>
+                                </div>
+                                <select name="gender" class="form-control"  id="gender">
+                                    <option value="L">Pria</option>
+                                    <option value="P" > Wanita</option>
+                                    
+                                </select>
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
@@ -118,7 +119,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select class="form-control"  id="exampleFormControlSelect1">
+                                <select name="major_id" class="form-control"  id="exampleFormControlSelect1">
                                     <option >Jurusan</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -132,7 +133,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select class="form-control"  id="exampleFormControlSelect1">
+                                <select name="rombel_id" class="form-control"  id="exampleFormControlSelect1">
                                     <option >Rombel</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -146,7 +147,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select class="form-control"  id="exampleFormControlSelect1">
+                                <select name="rayon_id" class="form-control"  id="exampleFormControlSelect1">
                                     <option >Rayon</option>
                                     <option>2</option>
                                     <option>3</option>

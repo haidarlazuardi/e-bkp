@@ -15,18 +15,20 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Rombel</th>
+                                            <th>Rayon</th>
                                             <th>Pembimbing</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($rayon as $data)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$data->rayon}}</td>
+                                            <td>{{$data->teacher_id}}</td>
+                                            <td><button type="button" class="btn btn-warning btn-sm">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -40,7 +42,7 @@
                             </div>
                             
                             <div class="modal-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{route ('rayon.create') }}">
                         @csrf
 
                          <div class="form-group{{ $errors->has('rayon') ? ' has-danger' : '' }}">
@@ -48,12 +50,12 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select class="form-control"  id="exampleFormControlSelect1">
+                                <select name="rayon" class="form-control"  id="exampleFormControlSelect1">
                                     <option >Rayon</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option value="CIB-1">CIB-1</option>
+                                    <option value="CIA-2">CIA-2</option>
+                                    <option value="CIC-3">CIC-3</option>
+                                    <option value="TAJ-4">TAJ-4</option>
                                 </select>
                             </div>
                         </div>
@@ -62,12 +64,12 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select class="form-control"  id="exampleFormControlSelect1">
+                                <select name="teacher_id" class="form-control"  id="exampleFormControlSelect1">
                                     <option>Pembimbing</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option value ="1"> kang dede</option>
+                                    <option value ="2">mas ono</option>
+                                    <option value ="3">mas muslih</option>
+                                    <option value ="4">mem mala</option>
                                 </select>
                             </div>
                         </div>

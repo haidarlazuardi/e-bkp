@@ -15,7 +15,7 @@ class CreateRombelsTable extends Migration
     {
         Schema::create('rombels', function (Blueprint $table) {
             $table->BigIncrements('id');
-            $table->string('string');
+            $table->string('rombel');
             $table->timestamps();
         });
     }

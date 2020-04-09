@@ -17,6 +17,7 @@ class CreatePunishmentsTable extends Migration
             $table->BigIncrements('id');
             $table->string('code_punishment');
             $table->integer('score');
+            $table->string('description');
             $table->timestamps();
         });
     }

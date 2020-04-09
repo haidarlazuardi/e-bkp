@@ -20,11 +20,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($rombel as $data)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$data->rombel}}</td>
+                                            <td><button type="button" class="btn btn-warning btn-sm">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -38,7 +40,8 @@
                             </div>
                             
                             <div class="modal-body">
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('rombel.create') }}">
+                               
                                 @csrf
 
                                  <div class="form-group{{ $errors->has('rombel') ? ' has-danger' : '' }}">
@@ -46,12 +49,11 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select class="form-control"  id="exampleFormControlSelect1">
-                                    <option >Rombel</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                <select name="rombel" class="form-control"  id="exampleFormControlSelect1">
+                                    <option>Rombel</option>
+                                    <option value="XII-1">XII-1</option>
+                                    <option value="XII-2">XII-2</option>
+                                   
                                 </select>
                             </div>
                         </div>

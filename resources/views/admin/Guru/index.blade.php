@@ -21,12 +21,14 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($teacher as $data)
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$loop->iteration}}</td>
+                                    <td>{{$data->nip}}</td>
+                                    <td>{{$data->full_name}}</td>
+                                    <td><button type="button" class="btn btn-warning btn-sm">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
                                 </tr>
+                               @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -40,7 +42,7 @@
                             </div>
                             <div class="modal-body">
                     
-                        <form  method="POST" action="">
+                        <form  method="POST" action="{{route ('guru.create')}}">
                             @csrf
 
                             <div class="form-group{{ $errors->has('nip') ? ' has-danger' : '' }}">
@@ -56,16 +58,16 @@
                                     </span>
                                 @endif
                             </div>
-                            <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                            <div class="form-group{{ $errors->has('fullname') ? ' has-danger' : '' }}">
                                 <div class="input-group input-group-alternative mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                     </div>
-                                    <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" type="email" name="name" value="{{ old('name') }}" required>
+                                    <input class="form-control{{ $errors->has('fullname') ? ' is-invalid' : '' }}" placeholder="{{ __('Full Name') }}" type="text" name="full_name" value="{{ old('name') }}" required>
                                 </div>
-                                @if ($errors->has('name'))
+                                @if ($errors->has('fullname'))
                                     <span class="invalid-feedback" style="display: block;" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('fullname') }}</strong>
                                     </span>
                                 @endif
                             </div>

@@ -8,5 +8,5 @@ class Rombel extends Model
 {
     
     protected $table = 'rombels';
-    protected $fillable = ['rombel'];
+    protected $fillable = ['rombel',];
 }

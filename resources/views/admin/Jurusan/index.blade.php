@@ -20,11 +20,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($major as $data)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$data->major}}</td>
+                                            <td><button type="button" class="btn btn-warning btn-sm">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -37,7 +39,7 @@
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             <div class="modal-body">
-                        <form method="POST" action="">
+                        <form method="POST" action="{{route ('major.create')}}">
                             @csrf
 
                              <div class="form-group{{ $errors->has('major') ? ' has-danger' : '' }}">
@@ -45,12 +47,12 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select class="form-control"  id="exampleFormControlSelect1">
+                                <select name="major" class="form-control"  id="exampleFormControlSelect1">
                                     <option >Major</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option value="RPL">RPL</option>
+                                    <option value="TKJ">TKJ</option>
+                                    <option value="BDP">BDP</option>
+                                    <option value="OTKP">OTKP</option>
                                 </select>
                             </div>
                         </div>

@@ -17,6 +17,7 @@ class CreateRewardsTable extends Migration
             $table->BigIncrements('id');
             $table->string('code_rewards');
             $table->integer('score');
+            $table->string('description');
             $table->timestamps();
         });
     }

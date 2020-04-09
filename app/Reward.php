@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Reward extends Model
 {
     protected $table = 'rewards';
-    protected $fillable = ['code_reward','point'];
+    protected $fillable = ['code_rewards','score','description'];
 }

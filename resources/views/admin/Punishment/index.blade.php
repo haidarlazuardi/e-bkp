@@ -17,16 +17,20 @@
                                             <th>#</th>
                                             <th>Kode Punishment</th>
                                             <th>Deskripsi</th>
+                                            <th>Point</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($punishment as $data)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$data->code_punishment}}</td>
+                                            <td>{{$data->description}}</td>
+                                            <td>{{$data->score}}</td>
+                                            <td><button type="button" class="btn btn-warning btn-sm">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
                                         </tr>
+                                    @endforeach   
                                     </tbody>
                                 </table>
                             </div>
@@ -39,7 +43,7 @@
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{route ('punishment.create')}}">
                         @csrf
 
                         <div class="form-group{{ $errors->has('code_punishment') ? ' has-danger' : '' }}">
@@ -48,7 +52,7 @@
                                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                                 </div>
                                 <input class="form-control{{ $errors->has('code_punishment') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Code punishment') }}" type="text" name="code" required autofocus>
+                                    placeholder="{{ __('Code punishment') }}" type="text" name="code_punishment" required autofocus>
                             </div>
                             @if ($errors->has('code_punishment'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -77,7 +81,7 @@
                                     <span class="input-group-text"><i class=""></i></span>
                                 </div>
                                 <textarea class="form-control{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Description') }}" name="deskripsi" value="{{ old('deskripsi') }}"
+                                    placeholder="{{ __('Description') }}" name="description" value="{{ old('description') }}"
                                     required autofocu rows="4", cols="54"  style="resize:none;"></textarea>
                             </div>
                             @if ($errors->has('deskripsi'))

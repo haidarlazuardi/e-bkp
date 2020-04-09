@@ -8,5 +8,5 @@ class Punishment extends Model
 {
 
     protected $table = 'punishments';
-    protected $fillable = ['code_punishment','point']; 
+    protected $fillable = ['code_punishment','score','description']; 
 }
