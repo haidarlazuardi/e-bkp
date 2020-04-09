@@ -2,14 +2,53 @@
 
 @section('content')
 @include('layouts.headers.cards')
-<div class="container-fluid mt--7">
-    <div class="row justify-content-center">
-        <div class="col">
-            <div class="card">
-                <div class="card-header bg-transparent">
+<div class="content-wrapper">
+<section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <br/>
+                           <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add New</button>
+                           <div class="table-responsive">
+                           <br/>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>ID User</th>
+                                            <th>NIS</th>
+                                            <th>Nama</th>
+                                            <th>JK</th>
+                                            <th>Jurusan</th>
+                                            <th>Rombel</th>
+                                            <th>Rayon</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+</div>
+<div class="modal fade" role="dialog" id="myModal">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+            <div class="modal-header">
                     <h3 class="mb-0"> Input Siswa </h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <div class="card-body px-lg-5 py-lg-5 bg-secondary">
+                <div class="modal-body">
 
                     <form method="POST" action="">
                         @csrf
@@ -118,7 +157,7 @@
                         </div>
 
 
-                <div class="text-center">
+                <div class="modal-footer">
                     <button type="submit" class="btn btn-primary mt-4">{{ __('save') }}</button>
                 </div>
                 </div>

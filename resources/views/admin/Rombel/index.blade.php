@@ -2,33 +2,60 @@
 
 @section('content')
     @include('layouts.headers.cards')
-    <div class="container-fluid mt--7">
-                <div class="row justify-content-center">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-header bg-transparent">
+    <div class="content-wrapper">
+<section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <br/>
+                           <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add New</button>
+                           <div class="table-responsive">
+                           <br/>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Rombel</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+</div>
+<div class="modal fade" role="dialog" id="myModal">
+<div class="modal-dialog">
+    <div class="modal-content">
+            <div class="modal-header">
                             <h3 class="mb-0" > Input Rombel </h3>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
                             
-                            <div class="card-body px-lg-5 py-lg-5 bg-secondary">
+                            <div class="modal-body">
                             <form method="POST" action="">
                                 @csrf
 
-                                <div class="form-group{{ $errors->has('rombels') ? ' has-danger' : '' }}">
-                                    <div class="input-group input-group-alternative mb-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                                        </div>
-                                        <input class="form-control{{ $errors->has('rombels') ? ' is-invalid' : '' }}"
-                                            placeholder="{{ __('Rombel') }}" type="text" name="rombel" required autofocus>
-                                    </div>
-                                    @if ($errors->has('rombels'))
-                                    <span class="invalid-feedback" style="display: block;" role="alert">
-                                        <strong>{{ $errors->first('rombels') }}</strong>
-                                    </span>
-                                    @endif
+                                 <div class="form-group{{ $errors->has('rombel') ? ' has-danger' : '' }}">
+                            <div class="input-group input-group-alternative mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                            <div class="text-center">
+                                <select class="form-control"  id="exampleFormControlSelect1">
+                                    <option >Rombel</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                            <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary mt-4">{{ __('save') }}</button>
                             </div>
                             </div>
