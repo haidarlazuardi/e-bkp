@@ -145,18 +145,18 @@
                             </li>
                              @endif                   
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('profile.edit') }}">
-                                    {{ __('User profile') }}
-                                </a>
-                        </li>
-                        <li class="nav-item">
-                                <a class="nav-link" href="{{ route('jurusan') }}">
-                                    {{ __('Input Jurusan') }}
-                                </a>
-                        </li>
-                      </ul>
-                    </div>
-              
+                                    <a class="nav-link" href="{{ route('jurusan') }}">
+                                        {{ __('Input Jurusan') }}
+                                    </a>
+                            </li>
+                        </ul>
+                        </div>
+                     <li class="nav-item">
+                    <a class="nav-link" href="{{ route('profile.edit') }}">
+                        <i class="fab fa-laravel" style="color: #f4645f;"></i> {{ __('User profile') }}
+                    </a>
+                </li>
+                
             </ul>
             <!-- Divider -->
             <hr class="my-3">

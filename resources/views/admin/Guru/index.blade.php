@@ -46,19 +46,12 @@
                                 <button type="submit" class="btn btn-primary mt-4">{{ __('Create account') }}</button>
                             </div>
                             </div>
-                            
+                            </div>          
                         </form>                            
-          </div>
-            </div>
-        </div>
-    </div>
-</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+            </div>
 
-        @include('layouts.footers.auth')
+ @include('layouts.footers.auth')
     </div>
 @endsection
 

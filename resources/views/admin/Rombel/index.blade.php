@@ -10,11 +10,33 @@
                             <h3 class="mb-0" > Input Rombel </h3>
                             </div>
                             
-                            <div class="card">
+                            <div class="card-body px-lg-5 py-lg-5 bg-secondary">
+                            <form method="POST" action="">
+                                @csrf
+
+                                <div class="form-group{{ $errors->has('rombels') ? ' has-danger' : '' }}">
+                                    <div class="input-group input-group-alternative mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                                        </div>
+                                        <input class="form-control{{ $errors->has('rombels') ? ' is-invalid' : '' }}"
+                                            placeholder="{{ __('Rombel') }}" type="text" name="rombel" required autofocus>
+                                    </div>
+                                    @if ($errors->has('rombels'))
+                                    <span class="invalid-feedback" style="display: block;" role="alert">
+                                        <strong>{{ $errors->first('rombels') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary mt-4">{{ __('save') }}</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
+                            </div>
+                                    </div>
+                            </form>
+                                </div>
+                            </div>
+                        
 
 
     @include('layouts.footers.auth')
