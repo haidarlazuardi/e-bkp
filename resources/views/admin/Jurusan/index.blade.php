@@ -10,48 +10,31 @@
                             <h3 class="mb-0" > Input Jurusan </h3>
                             </div>
                             <div class="card-body px-lg-5 py-lg-5 bg-secondary">
-                    
-                        <form  method="POST" action="">
+                        <form method="POST" action="">
                             @csrf
 
-                            <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                            <div class="form-group{{ $errors->has('major') ? ' has-danger' : '' }}">
                                 <div class="input-group input-group-alternative mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                                     </div>
-                                    <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{ __('Name') }}" type="text" name="name" value="{{ old('name') }}" required autofocus>
+                                    <input class="form-control{{ $errors->has('major') ? ' is-invalid' : '' }}"
+                                        placeholder="{{ __('Jurusan') }}" type="text" name="major" required autofocus>
                                 </div>
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" style="display: block;" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
+                                @if ($errors->has('major'))
+                                <span class="invalid-feedback" style="display: block;" role="alert">
+                                    <strong>{{ $errors->first('major') }}</strong>
+                                </span>
                                 @endif
                             </div>
-                            <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                <div class="input-group input-group-alternative mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                    </div>
-                                    <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}" required>
-                                </div>
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" style="display: block;" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                           
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary mt-4">{{ __('Create account') }}</button>
-                            </div>
-                            </div>
-                            
-                        </form>                            
-          </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary mt-4">{{ __('save') }}</button>
+                        </div>
                         </div>
                     </div>
+                    </form>
                 </div>
-
+            </div>
 
     @include('layouts.footers.auth')
 </div>
