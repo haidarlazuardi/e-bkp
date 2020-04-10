@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-header bg-transparent">
-                    <h3 class="mb-0"> Input Siswa </h3>
+                    <h3 class="mb-0"> Input Punishment </h3>
                 </div>
                 <div class="card-body px-lg-5 py-lg-5 bg-secondary">
 
