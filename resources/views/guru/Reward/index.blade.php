@@ -11,73 +11,45 @@
                 </div>
                 <div class="card-body px-lg-5 py-lg-5 bg-secondary">
 
-                    <form method="POST" action="">
+                <form method="POST" action="{{route ('guru.reward.create')}}">
                         @csrf
-
-                        <div class="form-group{{ $errors->has('id_reward') ? ' has-danger' : '' }}">
-                            <div class="input-group input-group-alternative mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                                </div>
-                                <select class="form-control"  id="exampleFormControlSelect1">
-                                    <option>ID Reward</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('reward') ? ' has-danger' : '' }}">
-                            <div class="input-group input-group-alternative mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                                </div>
-                                <input class="form-control{{ $errors->has('reward') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Reward') }}" type="text" name="reward" readonly required autofocus>
-                            </div>
-                            @if ($errors->has('reward'))
-                            <span class="invalid-feedback" style="display: block;" role="alert">
-                                <strong>{{ $errors->first('reward') }}</strong>
-                            </span>
-                            @endif
-                        </div>
                         <div class="form-group{{ $errors->has('id_siswa') ? ' has-danger' : '' }}">
                             <div class="input-group input-group-alternative mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select class="form-control"  id="exampleFormControlSelect1">
+                                <select name="student_id" class="form-control"  id="exampleFormControlSelect1">
+                                    @foreach($student as $data)
                                     <option>ID Siswa</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option value="{{$data->id}}">{{$data->full_name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                        
+
+                        <div class="form-group{{ $errors->has('id_punishment') ? ' has-danger' : '' }}">
                             <div class="input-group input-group-alternative mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Name') }}" type="email" name="name" readonly value="{{ old('name') }}"
-                                    required>
+                                <select name="reward_id" class="form-control"  id="exampleFormControlSelect1">
+                                    @foreach($reward as $data)
+                                    <option value="{{$data->id}}">{{$data->description}}</option>
+                                   @endforeach 
+                                   <input type="hidden" name="score" value="{{$data->score}}">
+                                </select>
                             </div>
-                            @if ($errors->has('name'))
-                            <span class="invalid-feedback" style="display: block;" role="alert">
-                                <strong>{{ $errors->first('name') }}</strong>
-                            </span>
-                            @endif
                         </div>
+                        
+
                         <div class="form-group{{ $errors->has('spectator') ? ' has-danger' : '' }}">
                             <div class="input-group input-group-alternative mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <input class="form-control{{ $errors->has('spectator') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Name') }}" type="email" name="spectator" value="{{ old('spectator') }}"
+                                    placeholder="{{ __('Name') }}" type="text" name="spectator" value="{{ old('spectator') }}"
                                     required>
                             </div>
                             @if ($errors->has('spectator'))
