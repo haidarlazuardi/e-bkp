@@ -51,6 +51,10 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function () {
 
 	Route::get('/jurusan','JurusanController@index')->name('jurusan');
 	Route::post('/jurusan/create','JurusanController@create')->name('major.create');
+});
 
+Route::group(['middleware' => ['auth','checkRole:guru']], function () {
+
+	
 });
 
