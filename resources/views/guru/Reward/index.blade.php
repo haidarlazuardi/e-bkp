@@ -2,31 +2,109 @@
 
 @section('content')
 @include('layouts.headers.cards')
+<div class="container-fluid mt--7">
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-transparent">
+                    <h3 class="mb-0"> Input Reward </h3>
+                </div>
+                <div class="card-body px-lg-5 py-lg-5 bg-secondary">
 
-    <div class="container-fluid mt--7">
-        <div class="row">
-            <div class="col-xl-12 order-xl-1">
-                <div class="card bg-secondary shadow">
-                    <div class="card-header bg-white border-0">
-                        <div class="row align-items-center">
-                            <h3 class="col-12 mb-0">{{ __('Input Reward Siswa') }}</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <form method="post" action="{{ route('profile.update') }}" autocomplete="off">
-                            @csrf
+                    <form method="POST" action="">
+                        @csrf
 
-                          
-
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-success mt-4">{{ __('Submit') }}</button>
+                        <div class="form-group{{ $errors->has('id_reward') ? ' has-danger' : '' }}">
+                            <div class="input-group input-group-alternative mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
+                                <select class="form-control"  id="exampleFormControlSelect1">
+                                    <option>ID Reward</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('reward') ? ' has-danger' : '' }}">
+                            <div class="input-group input-group-alternative mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                                </div>
+                                <input class="form-control{{ $errors->has('reward') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ __('Reward') }}" type="text" name="reward" readonly required autofocus>
+                            </div>
+                            @if ($errors->has('reward'))
+                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                <strong>{{ $errors->first('reward') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                        <div class="form-group{{ $errors->has('id_siswa') ? ' has-danger' : '' }}">
+                            <div class="input-group input-group-alternative mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                </div>
+                                <select class="form-control"  id="exampleFormControlSelect1">
+                                    <option>ID Siswa</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
+                            <div class="input-group input-group-alternative mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                </div>
+                                <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ __('Name') }}" type="email" name="name" readonly value="{{ old('name') }}"
+                                    required>
+                            </div>
+                            @if ($errors->has('name'))
+                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                <strong>{{ $errors->first('name') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                        <div class="form-group{{ $errors->has('spectator') ? ' has-danger' : '' }}">
+                            <div class="input-group input-group-alternative mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                </div>
+                                <input class="form-control{{ $errors->has('spectator') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ __('Name') }}" type="email" name="spectator" value="{{ old('spectator') }}"
+                                    required>
+                            </div>
+                            @if ($errors->has('spectator'))
+                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                <strong>{{ $errors->first('spectator') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-4">{{ __('save') }}</button>
+                </div>
                 </div>
             </div>
-        
-        @include('layouts.footers.auth')
+
+            </form>
+       
     </div>
+</div>
+</div>
+
+
+@include('layouts.footers.auth')
+</div>
 @endsection
+
+@push('js')
+<script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
+<script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+@endpush
