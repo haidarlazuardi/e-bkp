@@ -21,4 +21,12 @@ class RombelController extends Controller
 
         return redirect()->back();
     }
+
+    public function delete($id)
+    {
+        $rombel = Rombel::find($id);
+        $rombel->delete($rombel);
+
+        return redirect()->back();
+        }
 }

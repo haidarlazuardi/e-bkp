@@ -22,4 +22,12 @@ class RewardController extends Controller
         Reward::create($request->all());
         return redirect()->back();
     }
+
+    public function delete($id)
+    {
+        $reward = Reward::find($id);
+        $reward->delete($reward);
+
+        return redirect()->back();
+        }
 }

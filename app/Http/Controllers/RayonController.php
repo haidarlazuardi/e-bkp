@@ -21,4 +21,13 @@ class RayonController extends Controller
         Rayon::create($request->all());
         return redirect()->back();
     }
+
+
+    public function delete($id)
+
+    {
+        $rayon = Rayon::find($id);
+        $rayon->delete($rayon);
+        return redirect()->back();
+        }
 }

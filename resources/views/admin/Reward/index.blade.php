@@ -28,8 +28,8 @@
                                             <td>{{$data->code_rewards}}</td>
                                             <td>{{$data->description}}</td>
                                             <td>{{$data->score}}</td>
-                                                <td><button type="button" class="btn btn-warning btn-sm">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
-                                        </tr>
+                                            <td><a href="#" class="btn btn-warning btn-sm">Edit</a><a href="/reward/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</a></tr>
+                                         </tr>
                                             @endforeach
                                     </tbody>
                                 </table>

@@ -36,8 +36,7 @@
                                             <td>{{$data->major_id}}</td>
                                             <td>{{$data->rombel_id}}</td>
                                             <td>{{$data->rayon_id}}</td>
-                                            <td><button type="button" class="btn btn-warning btn-sm">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
-                                        </tr>
+                                            <td><a href="#" class="btn btn-warning btn-sm">Edit</a><a href="/siswa/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</a></tr>
                                             @endforeach
                                     </tbody>
                                 </table>

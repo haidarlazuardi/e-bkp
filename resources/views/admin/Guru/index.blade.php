@@ -26,7 +26,7 @@
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$data->nip}}</td>
                                     <td>{{$data->full_name}}</td>
-                                    <td><button type="button" class="btn btn-warning btn-sm">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+                                    <td><a href="#" class="btn btn-warning btn-sm">Edit</a><a href="/guru/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</button></a>
                                 </tr>
                                @endforeach
                             </tbody>
@@ -71,6 +71,21 @@
                                     </span>
                                 @endif
                             </div>
+                            <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
+                            <div class="input-group input-group-alternative mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                </div>
+                                <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                    placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}"
+                                    required>
+                            </div>
+                            @if ($errors->has('email'))
+                            <span class="invalid-feedback" style="display: block;" role="alert">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                            @endif
+                        </div>
                            
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary mt-4">{{ __('Create account') }}</button>

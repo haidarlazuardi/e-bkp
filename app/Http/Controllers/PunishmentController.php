@@ -22,4 +22,12 @@ class PunishmentController extends Controller
         Punishment::create($request->all());
         return redirect()->back();
     }
+
+    public function delete($id)
+    {
+        $punishment = Punishment::find($id);
+        $punishment->delete($punishment);
+
+        return redirect()->back();
+        }
 }
