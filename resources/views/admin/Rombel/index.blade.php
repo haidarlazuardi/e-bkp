@@ -24,7 +24,7 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$data->rombel}}</td>
-                                            <td><a href="#" class="btn btn-warning btn-sm">Edit</a>  <a href="/rombel/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</a>
+                                            <td><a href="#" class="btn btn-warning btn-sm"data-toggle="modal" data-target="#myModals">Edit</a>  <a href="/rombel/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</a>
                                 </tr>
                                         @endforeach
                                     </tbody>
@@ -65,7 +65,42 @@
                             </form>
                                 </div>
                             </div>
-                        
+<div class="modal fade" role="dialog" id="myModals">
+<div class="modal-dialog">
+    <div class="modal-content">
+            <div class="modal-header">
+                            <h3 class="mb-0" > Edit Rombel </h3>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            
+                            <div class="modal-body">
+                            @foreach($rombel as $p)
+                            <form method="POST" action="{{ route('rombel.edit',$p->id) }}">
+                               
+                                @csrf
+
+                                 <div class="form-group{{ $errors->has('rombel') ? ' has-danger' : '' }}">
+                            <div class="input-group input-group-alternative mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                </div>
+                                <select name="rombel" class="form-control"  id="exampleFormControlSelect1">
+                                    <option>Rombel</option>
+                                    <option value="XII-1">XII-1</option>
+                                    <option value="XII-2">XII-2</option>
+                                   
+                                </select>
+                            </div>
+                        </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary mt-4">{{ __('update') }}</button>
+                            </div>
+                            </div>
+                                    </div>
+                            </form>
+                                </div>
+                            </div>
+                        @endforeach
 
 
     @include('layouts.footers.auth')

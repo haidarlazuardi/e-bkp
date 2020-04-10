@@ -29,4 +29,21 @@ class RombelController extends Controller
 
         return redirect()->back();
         }
+        public function edit($id)
+    {       
+        $rombel = Rombel::find(); 
+        
+        }
+    public function update($id,Request $request)
+    { 
+        $this->validate($request,[
+            'rombel' => 'required',
+           ]);
+           $rombel=Rombel::find($id);
+           $rombel->rombel = $request->rombel;
+           $rombel->save();
+                
+            return redirect()->back();
+
+        }
 }

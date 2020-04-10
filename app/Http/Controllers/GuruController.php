@@ -40,4 +40,23 @@ class GuruController extends Controller
         $teacher->delete($teacher);
         return redirect()->back();
         }
+        public function edit($id)
+        {       
+            $teacher = Teacher::find(); 
+            
+            }
+        public function update($id,Request $request)
+        { 
+            $this->validate($request,[
+                'nip' => 'required',
+                'full_name'=>'required'
+               ]);
+               $teacher= Teacher::find($id);
+               $teacher->nip = $request->nip;
+               $teacher->full_name = $request->full_name;
+               $teacher->save();
+                    
+                return redirect()->back();
+    
+            }
 }
