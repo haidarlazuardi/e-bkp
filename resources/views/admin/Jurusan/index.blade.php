@@ -24,8 +24,8 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$data->major}}</td>
-                                            <td><button type="button" class="btn btn-warning btn-sm">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
-                                        </tr>
+                                            <td><a href="#" class="btn btn-warning btn-sm">Edit</a><a href="/jurusan/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</button></a>
+                                </tr>
                                         @endforeach
                                     </tbody>
                                 </table>

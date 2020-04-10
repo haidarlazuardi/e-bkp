@@ -24,8 +24,8 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$data->rombel}}</td>
-                                            <td><button type="button" class="btn btn-warning btn-sm">Edit</button><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
-                                        </tr>
+                                            <td><a href="#" class="btn btn-warning btn-sm">Edit</a>  <a href="/rombel/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</a>
+                                </tr>
                                         @endforeach
                                     </tbody>
                                 </table>

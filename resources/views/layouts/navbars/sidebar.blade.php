@@ -84,6 +84,28 @@
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
+                <a class="nav-link active" href="#navbar-example" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Input Punishment & Reward Siswa') }}</span>
+                    </a>
+
+                    <div class="collapse show" id="navbar-example">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('guru.reward')}}">
+                                    {{ __('Input Reward') }}
+                                </a>
+                            </li> 
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('guru.punishment')}}">
+                                    {{ __('Input Punishment') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                           @if(auth()->user()->role == "admin")
                 
                     <a class="nav-link active" href="#navbar-example" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
@@ -113,7 +135,6 @@
                     <div class="collapse show" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                           @if(auth()->user()->role == "admin")
                                 <a class="nav-link" href="{{ route('siswa') }}">
                                     {{ __('Input Siswa') }}
                                 </a>
@@ -143,7 +164,6 @@
                                     {{ __('Input Rayon') }}
                                 </a>
                             </li>
-                             @endif                   
                             <li class="nav-item">
                                     <a class="nav-link" href="{{ route('jurusan') }}">
                                         {{ __('Input Jurusan') }}
@@ -151,6 +171,7 @@
                             </li>
                         </ul>
                         </div>
+                             @endif                   
                      <li class="nav-item">
                     <a class="nav-link" href="{{ route('profile.edit') }}">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i> {{ __('User profile') }}

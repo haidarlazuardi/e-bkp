@@ -32,4 +32,12 @@ class SiswaController extends Controller
         $student = Student::create($request->all());
         return redirect('/siswa');
     }
+
+    public function delete($id)
+    {
+        $student = Student::find($id);
+        $student->delete($student);
+
+        return redirect()->back();
+        }
 }

@@ -19,4 +19,13 @@ class JurusanController extends Controller
         Major::create($request->all());
         return redirect()->back();
     }
+
+
+    public function delete($id)
+
+    {
+        $major = Major::find($id);
+        $major->delete($major);
+        return redirect()->back();
+        }
 }
