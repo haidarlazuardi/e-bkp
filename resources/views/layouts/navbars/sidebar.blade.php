@@ -84,6 +84,33 @@
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
+                <LI>
+                    @if(auth()->user()->role == "siswa")
+                        <a class="nav-link active" href="#navbar-example" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Data Punishment & Reward') }}</span>
+                    </a>
+            
+                    <div class="collapse show" id="navbar-example">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('reward.detail')}}">
+                                    {{ __('Data Reward') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('punishment.detail')}}">
+                                    {{ __('Data Punishment') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    @endif
+                </li>
+  
+  
+
+                @if(auth()->user()->role == "guru")
                 <a class="nav-link active" href="#navbar-example" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Input Punishment & Reward Siswa') }}</span>
@@ -102,6 +129,7 @@
                                 </a>
                             </li>
                         </ul>
+                       <LI>
                         <a class="nav-link active" href="#navbar-example" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Data Punishment & Reward') }}</span>
@@ -142,12 +170,19 @@
                                     {{ __('Data siswa Peringatan') }}
                                 </a>
                             </li>
+
                         </ul>
+                            <li class="nav-item">
+                    <a class="nav-link" href="{{ route('profile.edit') }}">
+                        <i class="fab fa-laravel" style="color: #f4645f;"></i> {{ __('User profile') }}
+                    </a>
+                </li>
                     </div>
                 </li>
   
                     </div>
                 </li>
+                @endif
                            @if(auth()->user()->role == "admin")
                 
                     <a class="nav-link active" href="#navbar-example" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
@@ -212,14 +247,15 @@
                                         {{ __('Input Jurusan') }}
                                     </a>
                             </li>
-                        </ul>
-                        </div>
-                             @endif                   
-                     <li class="nav-item">
+                            <li class="nav-item">
                     <a class="nav-link" href="{{ route('profile.edit') }}">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i> {{ __('User profile') }}
                     </a>
                 </li>
+                        </ul>
+                        </div>
+                             @endif                   
+                   
                 
             </ul>
             <!-- Divider -->

@@ -42,6 +42,10 @@ class Punishment_trController extends Controller
         
         return redirect()->back();
     }
-
+public function detail()
+{
+        $punishment = Tr_input_punishment::all();
+        return view('siswa/punishment',compact('punishment'));
+    }
 
 }

@@ -24,14 +24,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => ['auth','checkRole:guru,']], function () {
+Route::group(['middleware' => ['auth','checkRole:guru,siswa']], function () {
 	
 	Route::get('/punishment/siswa','Punishment_trController@index')->name('guru.punishment');
 	Route::get('/punishment/siswa/data','Punishment_trController@show')->name('guru.punishment.show');
+	Route::get('/data/punishment','Punishment_trController@detail')->name('punishment.detail');
 	Route::post('/punishment/siswa/create','Punishment_trController@create')->name('guru.punishment.create');
 
 	Route::get('/reward/siswa','Reward_trController@index')->name('guru.reward');
 	Route::get('/reward/siswa/data','Reward_trController@show')->name('guru.reward.show');
+	Route::get('/data/reward','Reward_trController@detail')->name('reward.detail');
+	
 	Route::post('/reward/siswa/create','Reward_trController@create')->name('guru.reward.create');
 
 	Route::get('/data/teladan','TeladanController@index')->name('teladan');

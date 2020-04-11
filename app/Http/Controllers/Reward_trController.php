@@ -43,4 +43,11 @@ class Reward_trController extends Controller
         return redirect()->back();
     }
 
+    public function detail()
+{
+        $reward = Tr_input_reward::all();
+        return view('siswa/reward',compact('reward'));
+    }
+
+
 }
