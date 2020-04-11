@@ -40,4 +40,22 @@ class SiswaController extends Controller
 
         return redirect()->back();
         }
-}
+        public function edit($id)
+        {       
+            $student = Student::find(); 
+            
+            }
+        public function update($id,Request $request)
+        { 
+            $this->validate($request,[
+                'student' => 'required',
+               ]);
+               $student= Student::find($id);
+               $student->user_id = $request->user_id;
+               $student->save();
+                    
+                return redirect()->back();
+    
+            }
+
+    }

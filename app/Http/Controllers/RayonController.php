@@ -30,4 +30,24 @@ class RayonController extends Controller
         $rayon->delete($rayon);
         return redirect()->back();
         }
+    public function edit($id)
+        {       
+            $rayon = Rayon::find(); 
+            
+            }
+    public function update($id,Request $request)
+        { 
+            $this->validate($request,[
+                'rayon' => 'required',
+                'teacher_id'=>'required',
+               ]);
+               $rayon= Rayon::find($id);
+               $rayon->rayon = $request->rayon;
+               $rayon->teacher_id = $request->teacher_id;
+               $rayon->save();
+                    
+                return redirect()->back();
+            }
+    
+            
 }

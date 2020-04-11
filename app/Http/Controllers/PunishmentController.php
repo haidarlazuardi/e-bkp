@@ -30,4 +30,25 @@ class PunishmentController extends Controller
 
         return redirect()->back();
         }
+    public function edit($id)
+    {       
+        $punishment = Punishment::find(); 
+        
+        }
+    public function update($id,Request $request)
+    { 
+        $this->validate($request,[
+            'code_punishment' => 'required',
+            'score'=>'required',
+            'description'=>'required'
+           ]);
+           $punishment= Punishment::find($id);
+           $punishment->code_punishment = $request->code_punishment;
+           $punishment->score = $request->score;
+           $punishment->description = $request->description;
+           $punishment->save();
+                
+            return redirect()->back();
+
+        }
 }

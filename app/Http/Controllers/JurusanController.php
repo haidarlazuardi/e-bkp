@@ -28,4 +28,21 @@ class JurusanController extends Controller
         $major->delete($major);
         return redirect()->back();
         }
+        public function edit($id)
+        {       
+            $major = Major::find(); 
+            
+            }
+        public function update($id,Request $request)
+        { 
+            $this->validate($request,[
+                'major' => 'required'
+               ]);
+               $major = Major::find($id);
+               $major->major = $request->major;
+               $major->save();
+                    
+                return redirect()->back();
+    
+            }
 }
