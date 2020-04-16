@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use \App\Student;
 use \App\User;
+use \App\Punishment;
+use \App\Reward;
+use \App\Major;
+use \App\Rombel;
+use \App\Rayon;
 
 class SiswaController extends Controller
 {
@@ -13,8 +18,12 @@ class SiswaController extends Controller
     public function index()
     {
         $student = Student::all();
-
-    	return view('admin/Siswa/index',compact('student'));
+        $punishment = Punishment::all();
+        $reward = Reward::all();
+        $major = Major::all();
+        $rombel = Rombel::all();
+        $rayon = Rayon::all();
+    	return view('admin/Siswa/index',compact('student','punishment','reward','major','rombel','rayon'));
  
     }
 

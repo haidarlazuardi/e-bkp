@@ -119,11 +119,10 @@
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <select name="major_id" class="form-control"  id="exampleFormControlSelect1">
-                                    <option >Jurusan</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                @foreach($major as $data)
+                                    <option>Jurusan</option>
+                                    <option value="{{$data->id}}">{{$data->major}}</option>
+                                @endforeach
                                 </select>
                             </div>
                         </div>
@@ -133,11 +132,10 @@
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <select name="rombel_id" class="form-control"  id="exampleFormControlSelect1">
-                                    <option >Rombel</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    @foreach($rombel as $data)
+                                    <option>Rombel</option>
+                                    <option value="{{$data->id}}">{{$data->rombel}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -147,11 +145,10 @@
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <select name="rayon_id" class="form-control"  id="exampleFormControlSelect1">
-                                    <option >Rayon</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    @foreach($rayon as $data)
+                                    <option>Rayon</option>
+                                    <option value="{{$data->id}}">{{$data->rayon}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
