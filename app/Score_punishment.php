@@ -9,4 +9,9 @@ class Score_punishment extends Model
     
     protected $table = 'score_punishments';
     protected $fillable = ['student_id','totaly_score'];
+
+public function Student()
+    {
+        return $this->belongsTo('app/Student');
+    }
 }

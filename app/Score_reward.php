@@ -9,4 +9,8 @@ class Score_reward extends Model
     protected $table = 'score_rewards';
     protected $fillable = ['student_id','totaly_score'];
 
+public function Student()
+    {
+        return $this->belongsTo('app/Student');
+    }
 }
