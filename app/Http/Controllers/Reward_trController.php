@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 use \App\Reward;
 use  \App\Tr_input_reward;
 use \App\Student;
@@ -25,8 +25,10 @@ class Reward_trController extends Controller
 
     public function show()
     {
-        $total = Tr_input_reward::all();
-        
+        $total = DB::table('tr_input_rewards')
+            ->select('student_id', DB::raw('sum(score) as count'))
+            ->groupBy('student_id')
+            ->get();
 
     	return view('guru/Reward/data',compact ('total'));
 
@@ -35,10 +37,6 @@ class Reward_trController extends Controller
 
     {
         $punishments = Tr_input_reward::create($request->all());
-        $score = new Score_reward;
-        $score->student_id = $punishments->student_id;
-        $score->totaly_score =$punishments->score;
-        $score->save();
         
         return redirect()->back();
     }
@@ -49,5 +47,12 @@ class Reward_trController extends Controller
         return view('siswa/reward',compact('reward'));
     }
 
+    public function delete($id)
+    {
+        $reward = Tr_input_reward::find($id);
+        $reward->delete($reward);
+
+        return redirect()->back();
+    }
 
 }

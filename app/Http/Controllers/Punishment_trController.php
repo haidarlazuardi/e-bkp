@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use \App\Punishment;
 use  \App\Tr_input_punishment;
 use \App\Student;
@@ -24,9 +25,10 @@ class Punishment_trController extends Controller
 
     public function show()
     {
-        $total = Tr_input_punishment::all();
-        
-
+        $total = DB::table('tr_input_punishments')
+            ->select('student_id', DB::raw('sum(score) as count'))
+            ->groupBy('student_id')
+            ->get();
     	return view('guru/Punishment/data',compact ('total'));
  
     }
@@ -35,17 +37,20 @@ class Punishment_trController extends Controller
 
     {
         $punishments = Tr_input_punishment::create($request->all());
-        $score = new Score_punishment;
-        $score->student_id = $punishments->student_id;
-        $score->totaly_score =$punishments->score;
-        $score->save();
-        
         return redirect()->back();
     }
 public function detail()
 {
         $punishment = Tr_input_punishment::all();
         return view('siswa/punishment',compact('punishment'));
+    }
+
+    public function delete($id)
+    {
+        $punishment = Tr_input_punishment::find($id);
+        $punishment->delete($punishment);
+
+        return redirect()->back();
     }
 
 }

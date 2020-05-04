@@ -20,7 +20,6 @@
                                 </div>
                                 <select name="student_id" class="form-control"  id="exampleFormControlSelect1">
                                     @foreach($student as $data)
-                                    <option>ID Siswa</option>
                                     <option value="{{$data->id}}">{{$data->full_name}}</option>
                                     @endforeach
                                 </select>
