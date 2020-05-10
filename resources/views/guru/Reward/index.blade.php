@@ -19,9 +19,13 @@
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <select name="student_id" class="form-control"  id="exampleFormControlSelect1">
+                                @if($student == null)
+                                <option value=""></option>
+                                    @else
                                     @foreach($student as $data)
                                     <option value="{{$data->id}}">{{$data->full_name}}</option>
                                     @endforeach
+                                    @endif
                                 </select>
                             </div>
                         </div>
@@ -34,7 +38,7 @@
                                 </div>
                                 <select name="reward_id" class="form-control"  id="exampleFormControlSelect1">
                                     @foreach($reward as $data)
-                                    <option value="{{$data->id}}">{{$data->description}}</option>
+                                    <option value="{{$data->id}}">{{$data->code_rewards}}</option>
                                    @endforeach 
                                    <input type="hidden" name="score" value="{{$data->score}}">
                                 </select>
@@ -48,7 +52,7 @@
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <input class="form-control{{ $errors->has('spectator') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Name') }}" type="text" name="spectator" value="{{ old('spectator') }}"
+                                    placeholder="{{ __('Spectator') }}" type="text" name="spectator" value="{{ old('spectator') }}"
                                     required>
                             </div>
                             @if ($errors->has('spectator'))

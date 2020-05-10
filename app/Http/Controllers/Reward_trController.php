@@ -25,11 +25,8 @@ class Reward_trController extends Controller
 
     public function show()
     {
-        $total = DB::table('tr_input_rewards')
-            ->select('student_id', DB::raw('sum(score) as count'))
-            ->groupBy('student_id')
-            ->get();
-
+        $total = Tr_input_reward::all();
+       
     	return view('guru/Reward/data',compact ('total'));
 
     }

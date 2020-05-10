@@ -24,12 +24,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
+                                        @foreach($total as $data)
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$data->student_id}}</td>
+                                            <td>{{$data->count}}</td>
                                         </tr>   
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

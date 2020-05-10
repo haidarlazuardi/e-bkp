@@ -50,7 +50,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select name="rayon" class="form-control"  id="exampleFormControlSelect1">
+                                <select name="rayon" class="form-control" id="exampleFormControlSelect1">
                                     <option >Rayon</option>
                                     <option value="CIB-1">CIB-1</option>
                                     <option value="CIA-2">CIA-2</option>
@@ -65,11 +65,9 @@
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <select name="teacher_id" class="form-control"  id="exampleFormControlSelect1">
-                                    <option>Pembimbing</option>
-                                    <option value ="1"> kang dede</option>
-                                    <option value ="2">mas ono</option>
-                                    <option value ="3">mas muslih</option>
-                                    <option value ="4">mem mala</option>
+                                    @foreach ($teacher as $data)
+                                    <option value ="{{$data->id}}">{{$data->full_name}}</option>
+                                     @endforeach
                                 </select>
                             </div>
                         </div>

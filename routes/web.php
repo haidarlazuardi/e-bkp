@@ -29,6 +29,7 @@ Route::group(['middleware' => ['auth','checkRole:guru,siswa']], function () {
 	Route::get('/punishment/siswa','Punishment_trController@index')->name('guru.punishment');
 	Route::get('/punishment/siswa/data','Punishment_trController@show')->name('guru.punishment.show');
 	Route::get('/data/punishment','Punishment_trController@detail')->name('punishment.detail');
+	Route::get('punishment-pdf','Punishment_trController@cetak_pdf')->name('punishment.cetak');
 	Route::post('/punishment/siswa/create','Punishment_trController@create')->name('guru.punishment.create');
 
 	Route::get('/reward/siswa','Reward_trController@index')->name('guru.reward');
@@ -64,6 +65,7 @@ Route::group(['middleware' => ['auth','checkRole:admin,guru']], function () {
 	Route::get('/punishment/{id}/edit','PunishmentController@edit');
 	Route::post('/punishment/{id}/update','PunishmentController@update')->name('punishment.edit');
 
+
 	Route::get('/siswa','SiswaController@index')->name('siswa');
 	Route::post('/siswa/create','SiswaController@create')->name('create');
 	Route::get('/siswa/{id}/delete','SiswaController@delete')->name('siswa.delete');
@@ -72,8 +74,8 @@ Route::group(['middleware' => ['auth','checkRole:admin,guru']], function () {
 	Route::get('/guru','GuruController@index')->name('guru');
 	Route::post('/guru/create','GuruController@create')->name('guru.create');
 	Route::get('/guru/{id}/delete','GuruController@delete')->name('guru.delete');
-	//Route::get('/guru/{id}/edit','GuruController@edit');
-	//Route::post('/guru/{id}/update','GuruController@update')->name('guru.edit');
+	Route::get('/guru/{id}/edit','GuruController@edit');
+	Route::post('/guru/{id}/update','GuruController@update')->name('guru.edit');
 
 	
 

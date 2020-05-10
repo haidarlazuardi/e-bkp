@@ -119,8 +119,8 @@
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <select name="major_id" class="form-control"  id="exampleFormControlSelect1">
-                                @foreach($major as $data)
                                     <option>Jurusan</option>
+                                @foreach($major as $data)
                                     <option value="{{$data->id}}">{{$data->major}}</option>
                                 @endforeach
                                 </select>
@@ -132,8 +132,8 @@
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <select name="rombel_id" class="form-control"  id="exampleFormControlSelect1">
-                                    @foreach($rombel as $data)
                                     <option>Rombel</option>
+                                    @foreach($rombel as $data)
                                     <option value="{{$data->id}}">{{$data->rombel}}</option>
                                     @endforeach
                                 </select>
@@ -145,8 +145,8 @@
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <select name="rayon_id" class="form-control"  id="exampleFormControlSelect1">
-                                    @foreach($rayon as $data)
                                     <option>Rayon</option>
+                                    @foreach($rayon as $data)
                                     <option value="{{$data->id}}">{{$data->rayon}}</option>
                                     @endforeach
                                 </select>

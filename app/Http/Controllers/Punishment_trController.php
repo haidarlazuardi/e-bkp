@@ -8,6 +8,7 @@ use \App\Punishment;
 use  \App\Tr_input_punishment;
 use \App\Student;
 use \App\Score_punishment;
+use PDF;
 
 
 class Punishment_trController extends Controller
@@ -25,10 +26,8 @@ class Punishment_trController extends Controller
 
     public function show()
     {
-        $total = DB::table('tr_input_punishments')
-            ->select('student_id', DB::raw('sum(score) as count'))
-            ->groupBy('student_id')
-            ->get();
+        $total = Tr_input_punishment::all();
+  
     	return view('guru/Punishment/data',compact ('total'));
  
     }
@@ -39,8 +38,8 @@ class Punishment_trController extends Controller
         $punishments = Tr_input_punishment::create($request->all());
         return redirect()->back();
     }
-public function detail()
-{
+    public function detail()
+    {
         $punishment = Tr_input_punishment::all();
         return view('siswa/punishment',compact('punishment'));
     }
@@ -52,5 +51,11 @@ public function detail()
 
         return redirect()->back();
     }
-
+    public function cetak_pdf()
+    {
+    	$punishment = Tr_input_punishment::all();
+ 
+    	$pdf = PDF::loadview('pdfpunishment',['punishment'=>$punishment]);
+    	return $pdf->download('punishment-pdf.pdf');
+    }
 }

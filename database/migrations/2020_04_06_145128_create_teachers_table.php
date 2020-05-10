@@ -17,7 +17,6 @@ class CreateTeachersTable extends Migration
             $table->BigIncrements('id');
             $table->integer('nip');
             $table->string('full_name');
-            $table->string('password');
             $table->timestamps();
         });
     }

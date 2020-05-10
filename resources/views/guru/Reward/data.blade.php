@@ -28,7 +28,8 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$data->student_id}}</td>
-                                            <td>{{$data->count}}</td>
+                                            <td>{{$data->score}}</td>
+                                       
                                             <td><a href="#" class="btn btn-warning btn-sm">Edit</a><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
                                         </tr>
                                     @endforeach   

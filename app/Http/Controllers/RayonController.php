@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Rayon;
+use \App\Teacher;
 
 class RayonController extends Controller
 {
@@ -11,8 +12,9 @@ class RayonController extends Controller
     public function index()
     {
 
+        $teacher = Teacher::all();
         $rayon = Rayon::all();
-    	return view('admin/Rayon/index',compact('rayon'));
+    	return view('admin/Rayon/index',compact('rayon','teacher'));
  
     }
 
