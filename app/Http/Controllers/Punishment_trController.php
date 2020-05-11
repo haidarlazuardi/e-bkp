@@ -27,8 +27,8 @@ class Punishment_trController extends Controller
     public function show()
     {
         $total = Tr_input_punishment::all();
-  
-    	return view('guru/Punishment/data',compact ('total'));
+        $student= Student::all();
+    	return view('guru/Punishment/data',compact ('total','student'));
  
     }
 

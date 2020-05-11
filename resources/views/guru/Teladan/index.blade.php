@@ -28,7 +28,7 @@
                                         @foreach($total as $data)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$data->student_id}}</td>
+                                            <td>{{$student->where('id', $data->student_id)->first()->full_name }}</td>
                                             <td>{{$data->count}}</td>
                                             <td></td>
                                         </tr>   

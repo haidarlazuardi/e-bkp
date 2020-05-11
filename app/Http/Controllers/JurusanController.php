@@ -33,16 +33,12 @@ class JurusanController extends Controller
             $major = Major::find(); 
             
             }
-        public function update($id,Request $request)
+        public function update(Request $request)
         { 
-            $this->validate($request,[
-                'major' => 'required'
-               ]);
-               $major = Major::find($id);
-               $major->major = $request->major;
-               $major->save();
-                    
-                return redirect()->back();
+            $major = Major::findOrFail($request->major_id);
+            $major->update($request->all());
+                
+            return redirect()->back();
     
             }
 }

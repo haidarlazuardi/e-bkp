@@ -34,14 +34,10 @@ class RombelController extends Controller
         $rombel = Rombel::find(); 
         
         }
-    public function update($id,Request $request)
+    public function update(Request $request)
     { 
-        $this->validate($request,[
-            'rombel' => 'required',
-           ]);
-           $rombel=Rombel::find($id);
-           $rombel->rombel = $request->rombel;
-           $rombel->save();
+            $rombel = Rombel::findOrFail($request->rombel_id);
+            $rombel->update($request->all());
                 
             return redirect()->back();
 

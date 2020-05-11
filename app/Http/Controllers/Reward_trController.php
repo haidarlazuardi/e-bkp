@@ -26,8 +26,8 @@ class Reward_trController extends Controller
     public function show()
     {
         $total = Tr_input_reward::all();
-       
-    	return view('guru/Reward/data',compact ('total'));
+        $student= Student::all();
+    	return view('guru/Reward/data',compact ('total','student'));
 
     }
     public function create(Request $request)

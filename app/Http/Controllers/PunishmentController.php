@@ -35,18 +35,10 @@ class PunishmentController extends Controller
         $punishment = Punishment::find(); 
         
         }
-    public function update($id,Request $request)
+    public function update(Request $request)
     { 
-        $this->validate($request,[
-            'code_punishment' => 'required',
-            'score'=>'required',
-            'description'=>'required'
-           ]);
-           $punishment= Punishment::find($id);
-           $punishment->code_punishment = $request->code_punishment;
-           $punishment->score = $request->score;
-           $punishment->description = $request->description;
-           $punishment->save();
+            $punishment = Punishment::findOrFail($request->punish_id);
+            $punishment->update($request->all());
                 
             return redirect()->back();
 

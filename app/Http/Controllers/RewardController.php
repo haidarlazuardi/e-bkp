@@ -35,18 +35,10 @@ class RewardController extends Controller
         $reward = reward::find(); 
         
         }
-    public function update($id,Request $request)
+    public function update(Request $request)
     { 
-        $this->validate($request,[
-            'code_rewards' => 'required',
-            'score'=>'required',
-            'description'=>'required'
-           ]);
-           $reward=Reward::find($id);
-           $reward->code_rewards = $request->code_rewards;
-           $reward->score = $request->score;
-           $reward->description = $request->description;
-           $reward->save();
+            $reward = Reward::findOrFail($request->reward_id);
+            $reward->update($request->all());
                 
             return redirect()->back();
 

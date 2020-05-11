@@ -24,7 +24,9 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$data->rombel}}</td>
-                                            <td><a href="#" class="btn btn-warning btn-sm"data-toggle="modal" data-target="#myModals">Edit</a>  <a href="/rombel/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</a>
+                                            <td><a href="#" class="btn btn-warning btn-sm"data-toggle="modal" 
+                                                data-id="{{$data->id}}"
+                                                data-rombel="{{$data->rombel}}" data-target="#editModal">Edit</a>  <a href="/rombel/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</a>
                                 </tr>
                                         @endforeach
                                     </tbody>
@@ -63,9 +65,14 @@
                             </div>
                                     </div>
                             </form>
-                                </div>
-                            </div>
-<div class="modal fade" role="dialog" id="myModals">
+                        </div>
+                    </div>
+                </div>
+
+
+<!-- Modal edit -->
+
+<div class="modal fade" role="dialog" id="editModal">
 <div class="modal-dialog">
     <div class="modal-content">
             <div class="modal-header">
@@ -74,17 +81,16 @@
                             </div>
                             
                             <div class="modal-body">
-                            @foreach($rombel as $p)
-                            <form method="POST" action="{{ route('rombel.edit',$p->id) }}">
+                            <form method="POST" action="{{ route('rombel.edit','update') }}">
                                
                                 @csrf
-
+                                <input type="hidden" name="rombel_id" id="id" value="">
                                  <div class="form-group{{ $errors->has('rombel') ? ' has-danger' : '' }}">
                             <div class="input-group input-group-alternative mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select name="rombel" class="form-control"  id="exampleFormControlSelect1">
+                                <select name="rombel" class="form-control" id="rombel">
                                     <option>Rombel</option>
                                     <option value="XII-1">XII-1</option>
                                     <option value="XII-2">XII-2</option>
@@ -93,14 +99,15 @@
                             </div>
                         </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary mt-4">{{ __('update') }}</button>
+                                <button type="submit" class="btn btn-primary mt-4">{{ __('save') }}</button>
                             </div>
                             </div>
                                     </div>
                             </form>
-                                </div>
-                            </div>
-                        @endforeach
+                        </div>
+                    </div>
+                </div>
+
 
 
     @include('layouts.footers.auth')
@@ -110,4 +117,17 @@
 @push('js')
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script>
+        $('#editModal').on('show.bs.modal', function (event) {
+          //console.log('Modal Opened');
+          var button = $(event.relatedTarget)
+          var id = button.data('id')
+          var rombel = button.data('rombel')
+          var modal = $(this)
+
+          modal.find('.modal-body #id').val(id);
+          modal.find('.modal-body #rombel').val(rombel);
+
+    })
+    </script>
 @endpush

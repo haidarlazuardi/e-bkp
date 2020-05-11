@@ -28,14 +28,18 @@
                                             <td>{{$data->code_punishment}}</td>
                                             <td>{{$data->description}}</td>
                                             <td>{{$data->score}}</td>
-                                            <td><a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#mymodals">Edit</a><a href="/punishment/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</a></td>
+                                            <td><a href="#" class="btn btn-warning btn-sm" class="btn btn-warning btn-sm" 
+                                                data-pid="{{$data->id}}"
+                                                data-punish="{{$data->code_punishment}}" 
+                                                data-desc="{{$data->description}}" 
+                                                data-score="{{$data->score}}" data-toggle="modal" data-target="#editModal">Edit</a><a href="/punishment/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</a></td>
                                         </tr>
                                     @endforeach   
                                     </tbody>
                                 </table>
                             </div>
 </div>
-   <div class="modal fade" role="dialog" id="myModal">
+<div class="modal fade" role="dialog" id="myModal">
 <div class="modal-dialog">
     <div class="modal-content">
             <div class="modal-header">
@@ -45,7 +49,6 @@
                         <div class="modal-body">
                     <form method="POST" action="{{route ('punishment.create')}}">
                         @csrf
-
                         <div class="form-group{{ $errors->has('code_punishment') ? ' has-danger' : '' }}">
                             <div class="input-group input-group-alternative mb-3">
                                 <div class="input-group-prepend">
@@ -98,8 +101,9 @@
                 </form>
             </div>
         </div>
-
-        <div class="modal fade" role="dialog" id="mymodals">
+    </div>
+    
+<div class="modal fade" role="dialog" id="editModal">
 <div class="modal-dialog">
     <div class="modal-content">
             <div class="modal-header">
@@ -107,17 +111,17 @@
                      <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
-                        @foreach($punishment as $p)
-                    <form method="POST" action="{{route ('punishment.edit',$p->id)}}">
+                    <form method="POST" action="{{route ('punishment.edit','update')}}">
                         @csrf
 
+                        <input type="hidden" name="punish_id" id="pid" value="">
                         <div class="form-group{{ $errors->has('code_punishment') ? ' has-danger' : '' }}">
                             <div class="input-group input-group-alternative mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                                 </div>
                                 <input class="form-control{{ $errors->has('code_punishment') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Code punishment') }}" type="text" name="code_punishment" value="{{$p->code_punishment}}" required autofocus>
+                                    placeholder="{{ __('Code punishment') }}" type="text" id="punish" name="code_punishment" required autofocus>
                             </div>
                             @if ($errors->has('code_punishment'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -131,7 +135,7 @@
                                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                                 </div>
                                 <input class="form-control{{ $errors->has('score') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Score') }}" type="number" name="score" value="{{ $p->score }}"
+                                    placeholder="{{ __('Score') }}" type="number" id="score" name="score" value="{{ old('score') }}"
                                     required autofocus>
                             </div>
                             @if ($errors->has('score'))
@@ -146,8 +150,8 @@
                                     <span class="input-group-text"><i class=""></i></span>
                                 </div>
                                 <textarea class="form-control{{ $errors->has('deskripsi') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Description') }}" name="description" value="{{ $p ->description }}"
-                                    required autofocu rows="4", cols="54"  style="resize:none;"></textarea>
+                                    placeholder="{{ __('Description') }}" id="desc" name="description" value="{{ old('description') }}"
+                                    required autofocus rows="4", cols="54"  style="resize:none;"></textarea>
                             </div>
                             @if ($errors->has('deskripsi'))
                             <span class="invalid-feedback" style="display: block;" role="alert">
@@ -163,7 +167,7 @@
                 </form>
             </div>
         </div>
-        @endforeach
+    </div>
 
     @include('layouts.footers.auth')
 </div>
@@ -172,4 +176,21 @@
 @push('js')
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script>
+        $('#editModal').on('show.bs.modal', function (event) {
+          //console.log('Modal Opened');
+          var button = $(event.relatedTarget)
+          var pid = button.data('pid')
+          var punish = button.data('punish')
+          var desc = button.data('desc')
+          var score = button.data('score')
+          var modal = $(this)
+
+          modal.find('.modal-body #pid').val(pid);
+          modal.find('.modal-body #punish').val(punish);
+          modal.find('.modal-body #score').val(score);
+          modal.find('.modal-body #desc').val(desc);
+
+    })
+    </script>
 @endpush

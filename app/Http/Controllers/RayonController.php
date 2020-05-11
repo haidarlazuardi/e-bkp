@@ -37,18 +37,12 @@ class RayonController extends Controller
             $rayon = Rayon::find(); 
             
             }
-    public function update($id,Request $request)
+    public function update(Request $request)
         { 
-            $this->validate($request,[
-                'rayon' => 'required',
-                'teacher_id'=>'required',
-               ]);
-               $rayon= Rayon::find($id);
-               $rayon->rayon = $request->rayon;
-               $rayon->teacher_id = $request->teacher_id;
-               $rayon->save();
-                    
-                return redirect()->back();
+            $rayon = Rayon::findOrFail($request->rayon_id);
+            $rayon->update($request->all());
+                
+            return redirect()->back();
             }
     
             

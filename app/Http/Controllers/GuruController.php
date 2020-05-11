@@ -45,18 +45,13 @@ class GuruController extends Controller
             $teacher = Teacher::find(); 
             
             }
-        public function update($id,Request $request)
+        public function update(Request $request)
         { 
-            $this->validate($request,[
-                'nip' => 'required',
-                'full_name'=>'required'
-               ]);
-               $teacher= Teacher::find($id);
-               $teacher->nip = $request->nip;
-               $teacher->full_name = $request->full_name;
-               $teacher->save();
-                    
-                return redirect()->back();
+            $teacher = Teacher::findOrFail($request->teacher_id);
+            $teacher->update($request->all());
+                
+            return redirect()->back();
+    
     
             }
 }
