@@ -55,7 +55,16 @@
                                     <option>Rombel</option>
                                     <option value="XII-1">XII-1</option>
                                     <option value="XII-2">XII-2</option>
-                                   
+                                    <option value="XII-3">XII-3</option>
+                                    <option value="XII-4">XII-4</option>
+                                    <option value="XI-1">XI-1</option>
+                                    <option value="XI-2">XI-2</option>
+                                    <option value="XI-3">XI-3</option>
+                                    <option value="XI-4">XI-4</option>
+                                    <option value="X-1">X-1</option>
+                                    <option value="X-2">X-2</option>
+                                    <option value="X-3">X-3</option>
+                                    <option value="X-4">X-4</option>
                                 </select>
                             </div>
                         </div>
@@ -94,6 +103,16 @@
                                     <option>Rombel</option>
                                     <option value="XII-1">XII-1</option>
                                     <option value="XII-2">XII-2</option>
+                                    <option value="XII-3">XII-3</option>
+                                    <option value="XII-4">XII-4</option>
+                                    <option value="XI-1">XI-1</option>
+                                    <option value="XI-2">XI-2</option>
+                                    <option value="XI-3">XI-3</option>
+                                    <option value="XI-4">XI-4</option>
+                                    <option value="X-1">X-1</option>
+                                    <option value="X-2">X-2</option>
+                                    <option value="X-3">X-3</option>
+                                    <option value="X-4">X-4</option>
                                    
                                 </select>
                             </div>

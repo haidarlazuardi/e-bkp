@@ -1,4 +1,4 @@
-<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+<div class="header bg-gradient-danger pb-6 pt-5 pt-md-6">
     <div class="container-fluid">
         <div class="header-body">
         <h1 class="text-white">

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
+use App\Score_punishment;
 use App\Student;
+use PDF;
 
 class PeringatanController extends Controller
 {
@@ -20,4 +21,12 @@ class PeringatanController extends Controller
      	return view('guru/Peringatan/index',compact ('total','student'));
  
     }
+
+    public function cetak_pdf(){
+        $student = Student::all();
+        $score = Score_punishment::all();
+        $pdf = PDF::loadview('guru/Peringatan/pdfsp',compact ('score','student'));
+    	return $pdf->download('sp-pdf.pdf');
+    }
+
 }

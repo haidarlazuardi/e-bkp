@@ -54,8 +54,8 @@ class Punishment_trController extends Controller
     public function cetak_pdf()
     {
     	$punishment = Tr_input_punishment::all();
- 
-    	$pdf = PDF::loadview('pdfpunishment',['punishment'=>$punishment]);
+        $student= Student::all();
+    	$pdf = PDF::loadview('guru/Punishment/pdfpunishment',compact ('punishment','student'));
     	return $pdf->download('punishment-pdf.pdf');
     }
 }

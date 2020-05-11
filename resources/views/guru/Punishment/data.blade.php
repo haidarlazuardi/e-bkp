@@ -2,9 +2,12 @@
 
 @section('content')
 @include('layouts.headers.cards')
-<div class="container-fluid mt--7">
+</br>
+<div class="content-wrapper">
+<section class="content">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col">
+        <div class="col-md-12">
         
           <div class="card">
                 <div class="card-header bg-transparent">
@@ -17,7 +20,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Kode Siswa</th>
+                                            <th>Nama Siswa</th>
                                             <th>Point</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -28,13 +31,13 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$student->where('id', $data->student_id)->first()->full_name }}</td>
                                             <td>{{$data->score}}</td>
-                                            <td><a href="#" class="btn btn-warning btn-sm">Edit</a><a href="#" class="btn btn-danger btn-sm">Delete</a></td>
+                                            <td><a href="#" class="btn btn-warning btn-sm">Edit</a><a href="/punishtr/{{$data->id}}/delete" class="btn btn-danger btn-sm">Delete</a></td>
                                         </tr>
                                     @endforeach   
                                     </tbody>
                                     
                                 </table>
-
+                            </br>
                 <a href="{{route ('punishment.cetak')}}" class="btn btn-primary" target="_blank">CETAK PDF</a>
                             </div>
 

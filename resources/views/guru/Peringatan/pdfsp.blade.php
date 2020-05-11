@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Punishment</title>
+    <title>Laporan SP</title>
 </head>
 
 <body>
@@ -435,7 +435,7 @@ h3 {
 
 </style>
     <center>
-		<h1>Laporan Punishment</h4>
+		<h1>Laporan total Punishment</h4>
 		<h3>Daftar Siswa</h5>
 	</center>
 
@@ -449,11 +449,11 @@ h3 {
         </thead>
 
         <tbody>
-            @foreach($punishment as $data)
+            @foreach($score as $data)
             <tr>
                 <td>{{$loop->iteration}}</td>
                 <td>{{$student->where('id', $data->student_id)->first()->full_name }}</td>
-                <td>{{$data->score}}</td>
+                <td>{{$data->totaly_score}}</td>
             </tr>
             @endforeach
         </tbody>

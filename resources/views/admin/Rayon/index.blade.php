@@ -55,10 +55,14 @@
                                 </div>
                                 <select name="rayon" class="form-control" id="exampleFormControlSelect1">
                                     <option >Rayon</option>
-                                    <option value="CIB-1">CIB-1</option>
+                                    <option value="CIA-1">CIA-1</option>
                                     <option value="CIA-2">CIA-2</option>
-                                    <option value="CIC-3">CIC-3</option>
-                                    <option value="TAJ-4">TAJ-4</option>
+                                    <option value="CIS-1">CIS-1</option>
+                                    <option value="CIS-2">CIS-2</option>
+                                    <option value="CIC-1">CIC-1</option>
+                                    <option value="CIC-2">CIC-2</option>
+                                    <option value="TAJ-1">TAJ-1</option>
+                                    <option value="TAJ-2">TAJ-2</option>
                                 </select>
                             </div>
                         </div>
@@ -106,10 +110,14 @@
                                 </div>
                                 <select name="rayon" class="form-control" id="rayon">
                                     <option >Rayon</option>
-                                    <option value="CIB-1">CIB-1</option>
+                                    <option value="CIA-1">CIA-1</option>
                                     <option value="CIA-2">CIA-2</option>
-                                    <option value="CIC-3">CIC-3</option>
-                                    <option value="TAJ-4">TAJ-4</option>
+                                    <option value="CIS-1">CIS-1</option>
+                                    <option value="CIS-2">CIS-2</option>
+                                    <option value="CIC-1">CIC-1</option>
+                                    <option value="CIC-2">CIC-2</option>
+                                    <option value="TAJ-1">TAJ-1</option>
+                                    <option value="TAJ-2">TAJ-2</option>
                                 </select>
                             </div>
                         </div>

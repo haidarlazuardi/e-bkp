@@ -80,8 +80,8 @@
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">
-                        <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
+                    <a class="nav-link" style="color: #f4645f;" href="{{ route('home') }}">
+                        <i class="ni ni-tv-2" ></i> {{ __('Dashboard') }}
                     </a>
                 </li>
                 <LI>
@@ -111,12 +111,12 @@
   
 
                 @if(auth()->user()->role == "guru")
-                <a class="nav-link active" href="#navbar-example" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                <a class="nav-link active" href="#navbar-input" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Input Punishment & Reward Siswa') }}</span>
                     </a>
 
-                    <div class="collapse show" id="navbar-example">
+                    <div class="collapse" id="navbar-input">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('guru.reward')}}">
@@ -129,13 +129,13 @@
                                 </a>
                             </li>
                         </ul>
-                       <LI>
-                        <a class="nav-link active" href="#navbar-example" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                    </div>
+                        <a class="nav-link active" href="#navbar-guru" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Data Punishment & Reward') }}</span>
                     </a>
 
-                    <div class="collapse show" id="navbar-example">
+                    <div class="collapse" id="navbar-guru">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('guru.reward.show')}}">
@@ -149,16 +149,12 @@
                             </li>
                         </ul>
                     </div>
-                </li>
-  
-                    </div>
-                </li>
-                <a class="nav-link active" href="#navbar-example" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                <a class="nav-link active" href="#navbar-siswa" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
                         <i class="fab fa-laravel" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Data Siswa') }}</span>
                     </a>
 
-                    <div class="collapse show" id="navbar-example">
+                    <div class="collapse" id="navbar-siswa">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('teladan')}}">
@@ -172,11 +168,6 @@
                             </li>
 
                         </ul>
-                            <li class="nav-item">
-                    <a class="nav-link" href="{{ route('profile.edit') }}">
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i> {{ __('User profile') }}
-                    </a>
-                </li>
                     </div>
                 </li>
   
@@ -186,11 +177,11 @@
                            @if(auth()->user()->role == "admin")
                 
                     <a class="nav-link active" href="#navbar-example" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('input punishment & reward') }}</span>
+                        <i class="ni ni-bag-17" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Input punishment & reward') }}</span>
                     </a>
 
-                    <div class="collapse show" id="navbar-example">
+                    <div class="collapse" id="navbar-example">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('reward')}}">
@@ -206,11 +197,11 @@
                     </div>
                 </li>
                     <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                        <i class="ni ni-collection " style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Input Siswa & Guru') }}</span>
                     </a>
 
-                    <div class="collapse show" id="navbar-examples">
+                    <div class="collapse" id="navbar-examples">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('siswa') }}">
@@ -226,11 +217,11 @@
                     </div>
                 </li>
                 <a class="nav-link active" href="#navbar-exampless" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
-                <i class="fab fa-laravel" style="color: #f4645f;"></i>
+                <i class="ni ni-chart-pie-35" style="color: #f4645f;"></i>
                 <span class="nav-link-text" style="color: #f4645f;">{{ __('Input Rombel, Rayon & Jurusan') }}</span>
                 </a>
 
-                <div class="collapse show" id="navbar-exampless">
+                <div class="collapse" id="navbar-exampless">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('rombel') }}">
@@ -247,11 +238,6 @@
                                         {{ __('Input Jurusan') }}
                                     </a>
                             </li>
-                            <li class="nav-item">
-                    <a class="nav-link" href="{{ route('profile.edit') }}">
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i> {{ __('User profile') }}
-                    </a>
-                </li>
                         </ul>
                         </div>
                              @endif                   

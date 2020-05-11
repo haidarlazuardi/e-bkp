@@ -8,6 +8,7 @@ use \App\Reward;
 use  \App\Tr_input_reward;
 use \App\Student;
 use \App\Score_reward;
+use PDF;
 
 class Reward_trController extends Controller
 {
@@ -50,6 +51,14 @@ class Reward_trController extends Controller
         $reward->delete($reward);
 
         return redirect()->back();
+    }
+
+    public function cetak_pdf()
+    {
+    	$reward = Tr_input_reward::all();
+        $student= Student::all();
+    	$pdf = PDF::loadview('guru/Reward/pdfreward',compact ('reward','student'));
+    	return $pdf->download('reward-pdf.pdf');
     }
 
 }

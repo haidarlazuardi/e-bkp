@@ -2,9 +2,13 @@
 
 @section('content')
 @include('layouts.headers.cards')
-<div class="container-fluid mt--7">
+</br>
+<div class="content-wrapper">
+<section class="content">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col">
+        <div class="col-md-12">
+        
         
           <div class="card">
                 <div class="card-header bg-transparent">
@@ -18,7 +22,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Kode Siswa</th>
+                                            <th>Nama Siswa</th>
                                             <th>Point</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -35,6 +39,8 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                </br>
+                <a href="{{route ('teladan.cetak')}}" class="btn btn-primary" target="_blank">CETAK PDF</a>
                             </div>
 
 </div>

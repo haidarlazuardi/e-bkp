@@ -54,8 +54,11 @@
                                     <option >Major</option>
                                     <option value="RPL">RPL</option>
                                     <option value="TKJ">TKJ</option>
-                                    <option value="BDP">BDP</option>
+                                    <option value="MMD">MMD</option>
                                     <option value="OTKP">OTKP</option>
+                                    <option value="BDP">BDP</option>
+                                    <option value="TBG">TBG</option>
+                                    <option value="PHT">PHT</option>
                                 </select>
                             </div>
                         </div>
@@ -90,8 +93,11 @@
                                     <option >Major</option>
                                     <option value="RPL">RPL</option>
                                     <option value="TKJ">TKJ</option>
-                                    <option value="BDP">BDP</option>
+                                    <option value="MMD">MMD</option>
                                     <option value="OTKP">OTKP</option>
+                                    <option value="BDP">BDP</option>
+                                    <option value="TBG">TBG</option>
+                                    <option value="PHT">PHT</option>
                                 </select>
                             </div>
                         </div>

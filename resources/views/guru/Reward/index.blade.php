@@ -2,9 +2,12 @@
 
 @section('content')
 @include('layouts.headers.cards')
-<div class="container-fluid mt--7">
+</br>
+<div class="content-wrapper">
+<section class="content">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-transparent">
                     <h3 class="mb-0"> Input Reward </h3>
@@ -38,7 +41,7 @@
                                 </div>
                                 <select name="reward_id" class="form-control"  id="exampleFormControlSelect1">
                                     @foreach($reward as $data)
-                                    <option value="{{$data->id}}">{{$data->code_rewards}}</option>
+                                    <option value="{{$data->id}}">{{$data->description}}</option>
                                    @endforeach 
                                    <input type="hidden" name="score" value="{{$data->score}}">
                                 </select>
@@ -71,6 +74,9 @@
             </form>
        
     </div>
+</div>
+</div>
+</div>
 </div>
 </div>
 

@@ -31,16 +31,20 @@ Route::group(['middleware' => ['auth','checkRole:guru,siswa']], function () {
 	Route::get('/data/punishment','Punishment_trController@detail')->name('punishment.detail');
 	Route::get('punishment-pdf','Punishment_trController@cetak_pdf')->name('punishment.cetak');
 	Route::post('/punishment/siswa/create','Punishment_trController@create')->name('guru.punishment.create');
+	Route::get('/punishtr/{id}/delete','Punishment_trController@delete')->name('guru.punishment.delete');
 
 	Route::get('/reward/siswa','Reward_trController@index')->name('guru.reward');
 	Route::get('/reward/siswa/data','Reward_trController@show')->name('guru.reward.show');
 	Route::get('/data/reward','Reward_trController@detail')->name('reward.detail');
-
+	Route::get('reward-pdf','Reward_trController@cetak_pdf')->name('reward.cetak');
 	Route::post('/reward/siswa/create','Reward_trController@create')->name('guru.reward.create');
+	Route::get('/rewardtr/{id}/delete','Reward_trController@delete')->name('guru.reward.delete');
 
 	Route::get('/data/teladan','TeladanController@index')->name('teladan');
+	Route::get('/teladan/cetak','TeladanController@cetak_pdf')->name('teladan.cetak');
 
 	Route::get('/data/peringatan','PeringatanController@index')->name('peringatan');
+	Route::get('/peringatan/cetak','PeringatanController@cetak_pdf')->name('peringatan.cetak');
 
 
 });
