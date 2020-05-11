@@ -21,7 +21,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select name="student_id" class="form-control"  id="exampleFormControlSelect1">
+                                <select name="name" class="form-control"  id="name">
                                 @if($student == null)
                                 <option value=""></option>
                                     @else
@@ -39,11 +39,11 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select name="reward_id" class="form-control"  id="exampleFormControlSelect1">
+                                <select name="deskripsi" class="form-control"  id="deskripsi">
                                     @foreach($reward as $data)
                                     <option value="{{$data->id}}">{{$data->description}}</option>
                                    @endforeach 
-                                   <input type="hidden" name="score" value="{{$data->score}}">
+                                   <input type="hidden" name="point" id="point">
                                 </select>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <input class="form-control{{ $errors->has('spectator') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Spectator') }}" type="text" name="spectator" value="{{ old('spectator') }}"
+                                    placeholder="{{ __('Spectator') }}" type="text" name="spectator" id="spectator" value="{{ old('spectator') }}"
                                     required>
                             </div>
                             @if ($errors->has('spectator'))
@@ -88,4 +88,19 @@
 @push('js')
 <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
 <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script>
+        $(document).on('change', '#deskripsi',() => {
+            var id = $('#deskripsi').val();
+            $.ajax({
+                dataType : 'json',
+                type : 'get',
+                url :  + id+ '/point',
+                data : '',
+                success:function(data){
+                    $('#point').val(data.score);
+                }
+            })
+        });
+</script>
+
 @endpush

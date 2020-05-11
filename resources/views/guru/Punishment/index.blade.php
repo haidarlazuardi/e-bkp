@@ -23,7 +23,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select name="student_id" class="form-control"  id="exampleFormControlSelect1">
+                                <select name="name" class="form-control"  id="name">
                                     @foreach($student as $data)
                                     <option value="{{$data->id}}">{{$data->full_name}}</option>
                                     @endforeach
@@ -37,11 +37,11 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
-                                <select name="punishment_id" class="form-control"  id="exampleFormControlSelect1">
+                                <select name="deskripsi" class="form-control"  id="deskripsi">
                                     @foreach($punishment as $data)
                                     <option value="{{$data->id}}">{{$data->description}}</option>
                                    @endforeach 
-                                   <input type="hidden" name="score" value="{{$data->score}}">
+                                   <input class="form-control" type="hidden" name="point" id="point">
                                 </select>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                                 </div>
                                 <input class="form-control{{ $errors->has('spectator') ? ' is-invalid' : '' }}"
-                                    placeholder="{{ __('Name') }}" type="text" name="spectator" value="{{ old('spectator') }}"
+                                    placeholder="{{ __('Name') }}" type="text" name="spectator" id="spectator" value="{{ old('spectator') }}"
                                     required>
                             </div>
                             @if ($errors->has('spectator'))
@@ -85,4 +85,19 @@
 @push('js')
 <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
 <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script>
+        $(document).on('change', '#deskripsi',() => {
+            var id = $('#deskripsi').val();
+            $.ajax({
+                dataType : 'json',
+                type : 'get',
+                url :  + id+ '/point',
+                data : '',
+                success:function(data){
+                    $('#point').val(data.score);
+                }
+            })
+        });
+</script>
+
 @endpush

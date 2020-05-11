@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class InsertTrigger extends Migration
+class LostReward extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,12 @@ class InsertTrigger extends Migration
     public function up()
     {
         //
-                DB::unprepared('CREATE TRIGGER insert_punishment AFTER INSERT ON tr_input_punishments
+        DB::unprepared('CREATE TRIGGER lost_reward AFTER DELETE ON tr_input_rewards
                         FOR EACH ROW BEGIN
-                        update score_punishments
-                        set totaly_score = totaly_score + NEW.score
+                        update score_rewards
+                        set totaly_score = totaly_score - OLD.score
                         WHERE
-                        student_id = NEW.student_id; END');
+                        student_id = OLD.student_id; END');
     }
 
     /**
@@ -30,6 +30,6 @@ class InsertTrigger extends Migration
     public function down()
     {
         //
-        DB::unprepared('DROP TRIGGER `insert_punishment`');
+        DB::unprepared('DROP TRIGGER `min_reward`');
     }
 }

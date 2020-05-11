@@ -23,6 +23,10 @@ class Reward_trController extends Controller
  
     }
 
+    public function point($id){
+        return Reward::findOrFail($id);
+    }
+
 
     public function show()
     {
@@ -34,15 +38,21 @@ class Reward_trController extends Controller
     public function create(Request $request)
 
     {
-        $punishments = Tr_input_reward::create($request->all());
+            $reward = Tr_input_reward::firstOrCreate([
+            'student_id' => $request->name,
+            'reward_id' => $request->deskripsi,
+            'score' => $request->point,
+            'spectator' => $request->spectator,
+        ]);
         
         return redirect()->back();
     }
 
     public function detail()
 {
+        $student = Student::all();
         $reward = Tr_input_reward::all();
-        return view('siswa/reward',compact('reward'));
+        return view('siswa/reward',compact('reward','student'));
     }
 
     public function delete($id)

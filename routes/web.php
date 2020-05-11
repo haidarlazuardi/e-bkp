@@ -24,6 +24,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
 Route::group(['middleware' => ['auth','checkRole:guru,siswa']], function () {
 	
 	Route::get('/punishment/siswa','Punishment_trController@index')->name('guru.punishment');
@@ -32,6 +34,7 @@ Route::group(['middleware' => ['auth','checkRole:guru,siswa']], function () {
 	Route::get('punishment-pdf','Punishment_trController@cetak_pdf')->name('punishment.cetak');
 	Route::post('/punishment/siswa/create','Punishment_trController@create')->name('guru.punishment.create');
 	Route::get('/punishtr/{id}/delete','Punishment_trController@delete')->name('guru.punishment.delete');
+	Route::get('/punishment/{id}/point','Punishment_trController@point');
 
 	Route::get('/reward/siswa','Reward_trController@index')->name('guru.reward');
 	Route::get('/reward/siswa/data','Reward_trController@show')->name('guru.reward.show');
@@ -39,6 +42,7 @@ Route::group(['middleware' => ['auth','checkRole:guru,siswa']], function () {
 	Route::get('reward-pdf','Reward_trController@cetak_pdf')->name('reward.cetak');
 	Route::post('/reward/siswa/create','Reward_trController@create')->name('guru.reward.create');
 	Route::get('/rewardtr/{id}/delete','Reward_trController@delete')->name('guru.reward.delete');
+	Route::get('/reward/{id}/point','Reward_trController@point');
 
 	Route::get('/data/teladan','TeladanController@index')->name('teladan');
 	Route::get('/teladan/cetak','TeladanController@cetak_pdf')->name('teladan.cetak');

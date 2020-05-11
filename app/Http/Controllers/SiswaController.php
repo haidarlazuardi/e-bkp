@@ -11,6 +11,8 @@ use \App\Reward;
 use \App\Major;
 use \App\Rombel;
 use \App\Rayon;
+use \App\Score_punishment;
+use \App\Score_reward;
 
 class SiswaController extends Controller
 {
@@ -36,9 +38,18 @@ class SiswaController extends Controller
         $user->password =bcrypt('rahasia');
         $user->remember_token = str::random(60);
         $user->save();
-        
+
         $request->request->add(['user_id' => $user->id]);        
         $student = Student::create($request->all());
+        $request->request->add(['student_id' =>$student->id]);
+        $reward = Score_reward::create([
+            'student_id' => $request->student_id,
+            'totaly_score' => '0'
+        ]);
+        $punish = Score_punishment::create([
+            'student_id' => $request->student_id,
+            'totaly_score' => '0'
+        ]);
         return redirect('/siswa');
     }
 

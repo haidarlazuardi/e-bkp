@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class MinReward extends Migration
+class AddPunish extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,12 @@ class MinReward extends Migration
     public function up()
     {
         //
-        DB::unprepared('CREATE TRIGGER min_reward AFTER DELETE ON tr_input_rewards
+                DB::unprepared('CREATE TRIGGER add_punishment AFTER INSERT ON tr_input_punishments
                         FOR EACH ROW BEGIN
-                        update score_rewards
-                        set totaly_score = totaly_score - OLD.score
+                        update score_punishments
+                        set totaly_score = totaly_score + NEW.score
                         WHERE
-                        student_id = OLD.student_id; END');
+                        student_id = NEW.student_id; END');
     }
 
     /**
@@ -30,6 +30,6 @@ class MinReward extends Migration
     public function down()
     {
         //
-        DB::unprepared('DROP TRIGGER `min_reward`');
+        DB::unprepared('DROP TRIGGER `insert_punishment`');
     }
 }

@@ -24,6 +24,10 @@ class Punishment_trController extends Controller
  
     }
 
+    public function point($id){
+        return Punishment::findOrFail($id);
+    }
+
     public function show()
     {
         $total = Tr_input_punishment::all();
@@ -35,13 +39,19 @@ class Punishment_trController extends Controller
     public function create(Request $request)
 
     {
-        $punishments = Tr_input_punishment::create($request->all());
+        $punishments = Tr_input_punishment::firstOrCreate([
+            'student_id' => $request->name,
+            'punishment_id' => $request->deskripsi,
+            'score' => $request->point,
+            'spectator' => $request->spectator,
+        ]);
         return redirect()->back();
     }
     public function detail()
-    {
+    {   
+        $student = Student::all();
         $punishment = Tr_input_punishment::all();
-        return view('siswa/punishment',compact('punishment'));
+        return view('siswa/punishment',compact('punishment','student'));
     }
 
     public function delete($id)

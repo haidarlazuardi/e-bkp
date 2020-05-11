@@ -176,6 +176,7 @@
 @push('js')
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.min.js"></script>
     <script src="{{ asset('argon') }}/vendor/chart.js/dist/Chart.extension.js"></script>
+    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <script>
         $('#editModal').on('show.bs.modal', function (event) {
           //console.log('Modal Opened');

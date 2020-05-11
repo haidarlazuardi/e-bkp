@@ -18,7 +18,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Kode Siswa</th>
+                                            <th>Nama Siswa</th>
                                             <th>Point</th>
                                             <th>waktu</th>
                                         </tr>
@@ -27,7 +27,7 @@
                                     @foreach($punishment as $data)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$data->student_id}}</td>
+                                            <td>{{$student->where('id', $data->student_id)->first()->full_name }}</td>
                                             <td>{{$data->score}}</td>
                                             <td>{{$data->created_at}}</td>
                                         </tr>
