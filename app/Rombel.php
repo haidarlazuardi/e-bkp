@@ -9,4 +9,9 @@ class Rombel extends Model
     
     protected $table = 'rombels';
     protected $fillable = ['rombel',];
+
+    public function Student()
+    {
+        return $this->belongsTo('App\Student');
+    }
 }
